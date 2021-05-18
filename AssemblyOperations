@@ -1,0 +1,20 @@
+long decode(long x, long y, long z)
+addq %rsi, %rdi
+imulq %rdx, %rdi
+movq %rdi, %rax
+sarq $15, %rax
+salq $31, %rax
+andq %rdi, %rax
+ret
+
+//Converted into C code below_____________________________________________________________________________________
+
+long decode(long x , long y, long z){
+x= x+y;
+x= x*z;
+long result=x;
+result = result >> 15; 
+result = result <<31;
+result = result & x;
+return result;
+}
